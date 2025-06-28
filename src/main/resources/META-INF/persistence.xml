@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="javafxAppPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Entités à déclarer -->
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.Admin</class>
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.CarteBancaire</class>
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.Client</class>
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.Compte</class>
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.Credit</class>
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.FraisBancaire</class>
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.Remboursement</class>
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.TicketSupport</class>
+        <class>com.isi.mini_systeme_bancaire_javafx_jpa.model.Transaction</class>
+
+        <properties>
+            <!-- Configuration de la connexion à PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gbank"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="pqsser"/>
+
+            <!-- Configuration Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Stratégie pour la création/mise à jour du schéma -->
+            <!-- "create" pour créer les tables à chaque démarrage (utile en développement) -->
+            <!-- "update" pour mise à jour du schéma sans perte de données -->
+            <!-- "validate" pour vérifier uniquement le schéma en production -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+
+
+            <!-- Configuration des séquences pour les ID auto-incrémentés -->
+            <property name="hibernate.id.new_generator_mappings" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

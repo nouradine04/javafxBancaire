@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #e8ecef;" spacing="25.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isi.mini_systeme_bancaire_javafx_jpa.controller.LoginController">
+    <children>
+        <!-- En-tête avec rectangle -->
+        <Rectangle width="1000.0" height="120.0" fill="linear-gradient(to right, #1e3a8a, #3b82f6)" />
+
+        <!-- Titre -->
+        <Label text="Banque Moderne" textFill="#1e3a8a" style="-fx-font-weight: bold;">
+            <font>
+                <Font name="Helvetica" size="28.0" />
+            </font>
+        </Label>
+
+        <!-- Formulaire -->
+        <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 30;">
+            <children>
+                <Label text="Nom d'utilisateur" textFill="#333333" />
+                <TextField fx:id="txtUsername" promptText="Entrez votre identifiant" style="-fx-background-color: #f5f5f5; -fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 8;" prefWidth="300.0" />
+
+                <Label text="Mot de passe" textFill="#333333" />
+                <PasswordField fx:id="txtPassword" promptText="Entrez votre mot de passe" style="-fx-background-color: #f5f5f5; -fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 8;" prefWidth="300.0" />
+
+                <!-- Boutons dans un HBox -->
+                <HBox alignment="CENTER" spacing="20.0">
+                    <children>
+                        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#handleLogin" text="Connexion" style="-fx-background-color: #1e3a8a; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;" prefWidth="120.0" prefHeight="40.0" />
+                        <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#handleRegister" text="S'inscrire" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;" prefWidth="120.0" prefHeight="40.0" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets top="40.0" right="40.0" bottom="40.0" left="40.0" />
+    </padding>
+</VBox>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+<?import java.lang.String?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.isi.gestion_bancaire_javafx_jpa.controllers.ClientController"
+            prefHeight="600.0" prefWidth="900.0"
+            styleClass="white-bg">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <Label text="Gestion des Clients" styleClass="header-1" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS" />
+                <TextField fx:id="searchField" promptText="Rechercher par nom, email..." prefWidth="250" styleClass="textfield-2" />
+                <Button text="Rechercher" styleClass="bg-color-1" textFill="WHITE" prefHeight="30" prefWidth="100" onAction="#handleSearch" />
+            </HBox>
+
+            <Separator />
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS">
+            <!-- Tableau des clients -->
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+
+                <TableView fx:id="clientsTable" VBox.vgrow="ALWAYS" styleClass="table-view" onMouseClicked="#handleClientSelection">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+                        <TableColumn fx:id="nomColumn" text="Nom" prefWidth="120" />
+                        <TableColumn fx:id="prenomColumn" text="Prénom" prefWidth="120" />
+                        <TableColumn fx:id="emailColumn" text="Email" prefWidth="180" />
+                        <TableColumn fx:id="telephoneColumn" text="Téléphone" prefWidth="120" />
+                        <TableColumn fx:id="statutColumn" text="Statut" prefWidth="80" />
+                    </columns>
+                    <placeholder>
+                        <Label text="Aucun client disponible" />
+                    </placeholder>
+                </TableView>
+            </VBox>
+
+            <!-- Détails du client -->
+            <VBox styleClass="white-bg, shadow">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+
+                <TabPane VBox.vgrow="ALWAYS">
+                    <!-- Onglet Informations générales -->
+                    <Tab text="Informations" closable="false">
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+
+                            <Label text="Informations du client" styleClass="header-1" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+                            <!-- Photo de profil (placeholder) -->
+                            <HBox alignment="CENTER">
+                                <StackPane styleClass="shadow" minWidth="120" maxWidth="120" minHeight="120" maxHeight="120">
+                                    <ImageView fx:id="profileImageView" fitWidth="120" fitHeight="120" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../images/profile-placeholder.png" />
+                                        </image>
+                                    </ImageView>
+                                </StackPane>
+                            </HBox>
+
+                            <GridPane vgap="10" hgap="10">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="100" />
+                                    <ColumnConstraints hgrow="ALWAYS" />
+                                </columnConstraints>
+
+                                <Label text="ID Client:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                <TextField fx:id="idField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="textfield-2" disable="true" />
+
+                                <Label text="Nom:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                <TextField fx:id="nomField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="textfield-2" />
+
+                                <Label text="Prénom:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                <TextField fx:id="prenomField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="textfield-2" />
+
+                                <Label text="Email:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                                <TextField fx:id="emailField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="textfield-2" />
+
+                                <Label text="Téléphone:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                                <TextField fx:id="telephoneField" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="textfield-2" />
+
+                                <Label text="Adresse:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                                <TextArea fx:id="adresseArea" GridPane.rowIndex="5" GridPane.columnIndex="1"
+                                          prefHeight="80" wrapText="true" styleClass="textfield-2" />
+
+                                <Label text="Date de naissance:" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                                <DatePicker fx:id="dateNaissancePicker" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+
+                                <Label text="Statut:" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                                <ComboBox fx:id="statutCombo" GridPane.rowIndex="7" GridPane.columnIndex="1" maxWidth="Infinity" />
+                            </GridPane>
+
+                            <HBox spacing="10" alignment="CENTER_RIGHT">
+                                <Button fx:id="clearButton" text="Effacer" onAction="#handleClear" />
+                                <Button fx:id="deleteButton" text="Supprimer" styleClass="btn-2" onAction="#handleDelete" />
+                                <Button fx:id="saveButton" text="Enregistrer" styleClass="bg-color-1" textFill="WHITE" onAction="#handleSave" />
+                            </HBox>
+                        </VBox>
+                    </Tab>
+
+                    <!-- Onglet Comptes -->
+                    <Tab text="Comptes" closable="false">
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Comptes du client" styleClass="header-1" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button text="Ajouter un compte" styleClass="bg-color-1" textFill="WHITE" onAction="#handleAjouterCompte" />
+                            </HBox>
+
+                            <TableView fx:id="comptesTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                                <columns>
+                                    <TableColumn fx:id="compteIdColumn" text="ID" prefWidth="50" />
+                                    <TableColumn fx:id="compteNumeroColumn" text="Numéro" prefWidth="120" />
+                                    <TableColumn fx:id="compteTypeColumn" text="Type" prefWidth="80" />
+                                    <TableColumn fx:id="compteSoldeColumn" text="Solde" prefWidth="100" />
+                                    <TableColumn fx:id="compteDateCreationColumn" text="Date création" prefWidth="120" />
+                                    <TableColumn fx:id="compteStatutColumn" text="Statut" prefWidth="80" />
+                                </columns>
+                                <placeholder>
+                                    <Label text="Aucun compte disponible pour ce client" />
+                                </placeholder>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+
+                    <!-- Onglet Cartes -->
+                    <Tab text="Cartes" closable="false">
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Cartes bancaires du client" styleClass="header-1" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button text="Ajouter une carte" styleClass="bg-color-1" textFill="WHITE" onAction="#handleAjouterCarte" />
+                            </HBox>
+
+                            <TableView fx:id="cartesTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                                <columns>
+                                    <TableColumn fx:id="carteIdColumn" text="ID" prefWidth="50" />
+                                    <TableColumn fx:id="carteNumeroColumn" text="Numéro" prefWidth="150" />
+                                    <TableColumn fx:id="carteExpirationColumn" text="Expiration" prefWidth="100" />
+                                    <TableColumn fx:id="carteCompteColumn" text="Compte" prefWidth="120" />
+                                    <TableColumn fx:id="carteStatutColumn" text="Statut" prefWidth="80" />
+                                </columns>
+                                <placeholder>
+                                    <Label text="Aucune carte disponible pour ce client" />
+                                </placeholder>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+
+                    <!-- Onglet Crédits -->
+                    <Tab text="Crédits" closable="false">
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Crédits du client" styleClass="header-1" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button text="Simuler un crédit" styleClass="bg-color-1" textFill="WHITE" onAction="#handleSimulerCredit" />
+                            </HBox>
+
+                            <TableView fx:id="creditsTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                                <columns>
+                                    <TableColumn fx:id="creditIdColumn" text="ID" prefWidth="50" />
+                                    <TableColumn fx:id="creditMontantColumn" text="Montant" prefWidth="100" />
+                                    <TableColumn fx:id="creditTauxColumn" text="Taux" prefWidth="80" />
+                                    <TableColumn fx:id="creditDureeColumn" text="Durée" prefWidth="80" />
+                                    <TableColumn fx:id="creditDateDemandeColumn" text="Date demande" prefWidth="120" />
+                                    <TableColumn fx:id="creditStatutColumn" text="Statut" prefWidth="80" />
+                                </columns>
+                                <placeholder>
+                                    <Label text="Aucun crédit disponible pour ce client" />
+                                </placeholder>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+                </TabPane>
+            </VBox>
+        </SplitPane>
+    </center>
+    <bottom>
+        <HBox styleClass="white-bg" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10" />
+            </padding>
+            <Label text="Prêt" />
+        </HBox>
+    </bottom>
+
+    <stylesheets>
+        <URL value="@../css/MainFormDesign.css" />
+        <URL value="@../css/DoctorMainFormDesign.css" />
+    </stylesheets>
+</BorderPane>

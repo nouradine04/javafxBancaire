@@ -1,0 +1,291 @@
+<!--exemple le dashboard de l'admin -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isi.sn.covoiturage_app_javafx_jpa.controllers.DashboardAdminController">
+    <children>
+        <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <BorderPane layoutX="-10.0" layoutY="186.0" prefHeight="700.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <top>
+                        <AnchorPane prefHeight="61.0" prefWidth="1100.0" styleClass="white-bg" stylesheets="@../css/MainFormDesign.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane layoutY="2.0" prefHeight="60.0" prefWidth="100.0" stylesheets="@../css/MainFormDesign.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="922.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Label layoutX="1.0" prefHeight="62.0" prefWidth="205.0" styleClass="bg-color-1" text="  B' ArtCola Bradley" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="20.0" />
+                                            </font>
+                                            <stylesheets>
+                                                <URL value="@../css/DoctorMainFormDesign.css" />
+                                                <URL value="@../css/MainFormDesign.css" />
+                                            </stylesheets>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <Label fx:id="Current_Form" layoutX="222.0" layoutY="14.0" prefHeight="34.0" prefWidth="238.0" styleClass="header-1" text="ESPACE ADMINISTRATEUR">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                    <stylesheets>
+                                        <URL value="@../css/DoctorMainFormDesign.css" />
+                                        <URL value="@../css/MainFormDesign.css" />
+                                    </stylesheets>
+                                </Label>
+                        <Button layoutX="1008.0" layoutY="15.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="32.0" prefWidth="143.0" styleClass="bg-color-1" text="DECONNEXION" textFill="#fff7f7">
+                           <stylesheets>
+                              <URL value="@../css/DoctorMainFormDesign.css" />
+                              <URL value="@../css/MainFormDesign.css" />
+                           </stylesheets>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                            </children>
+                        </AnchorPane>
+                    </top>
+                    <left>
+                        <AnchorPane prefHeight="642.0" prefWidth="207.0" styleClass="bg-color-1" BorderPane.alignment="CENTER">
+                            <stylesheets>
+                                <URL value="@../css/DoctorMainFormDesign.css" />
+                                <URL value="@../css/MainFormDesign.css" />
+                            </stylesheets>
+                     <children>
+                        <Label layoutX="10.0" layoutY="478.0" prefHeight="18.0" prefWidth="111.0" text="PROFILE" textFill="WHITE" underline="true">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="18.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/artisteA.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="19.0" layoutY="521.0" mnemonicParsing="false" onAction="#goToProfile" prefHeight="40.0" prefWidth="147.0" styleClass="nav-btn-2" stylesheets="@../css/DoctorMainFormDesign.css" text="          PROFILE" />
+                        <Button layoutX="15.0" layoutY="246.0" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="40.0" prefWidth="147.0" styleClass="nav-btn-2" stylesheets="@../css/DoctorMainFormDesign.css" text="DASHBOARD" textFill="#fffcfc">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/art1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="15.0" layoutY="301.0" mnemonicParsing="false" onAction="#goToUser" prefHeight="40.0" prefWidth="147.0" styleClass="nav-btn-2" stylesheets="@../css/DoctorMainFormDesign.css" text="USER">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/rd5gvyoa.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="15.0" layoutY="355.0" mnemonicParsing="false" onAction="#goToCredit" prefHeight="40.0" prefWidth="147.0" styleClass="nav-btn-2" stylesheets="@../css/DoctorMainFormDesign.css" text="          CREDIT" />
+                        <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="18.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/vA.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="9.0" layoutY="201.0" prefHeight="18.0" prefWidth="111.0" text="FEATURES" textFill="WHITE" underline="true">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Line endX="91.59999084472656" layoutX="89.0" layoutY="193.0" startX="-71.59999084472656" stroke="WHITE" />
+                        <ImageView fitHeight="121.0" fitWidth="159.0" layoutX="29.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/art.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="15.0" layoutY="409.0" mnemonicParsing="false" onAction="#goToRemboursment" prefHeight="40.0" prefWidth="147.0" styleClass="nav-btn-2" stylesheets="@../css/DoctorMainFormDesign.css" text="REMBOURSMENT">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/rd5gvyoa.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane prefHeight="642.0" prefWidth="953.0" stylesheets="@../css/MainFormDesign.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="appointments_form" layoutX="10.0" layoutY="20.0" prefHeight="638.0" prefWidth="989.0" stylesheets="@../css/MainFormDesign.css" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                              <ImageView fitHeight="636.0" fitWidth="968.0" layoutX="4.0" layoutY="1.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../images/u1.jpg" />
+                                 </image>
+                              </ImageView>
+                                        <AnchorPane layoutX="16.0" layoutY="4.8" prefHeight="49.0" prefWidth="945.0" stylesheets="@../css/DoctorMainFormDesign.css" AnchorPane.bottomAnchor="584.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="5.0">
+                                            <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="white-bg" />
+                                            </styleClass>
+                                        </AnchorPane>
+                                        <Label layoutX="22.0" layoutY="14.0" prefHeight="30.0" prefWidth="158.0" styleClass="header-1" stylesheets="@../css/MainFormDesign.css" text="DASHBOARD">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                              <AnchorPane layoutX="14.0" layoutY="91.0" prefHeight="179.0" prefWidth="947.0" stylesheets="@../css/DoctorMainFormDesign.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="639.0" layoutY="19.0" prefHeight="141.0" prefWidth="240.0" stylesheets="@../css/DoctorMainFormDesign.css">
+                                       <children>
+                                          <Label layoutX="70.0" layoutY="92.0" prefHeight="27.0" prefWidth="182.0" text="CARTES BANCAIRES" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="trajetTfd" layoutX="222.0" layoutY="18.0" prefHeight="27.0" prefWidth="37.0" text="000" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="radius" />
+                                          <String fx:value="bg-color-1" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="344.0" layoutY="19.0" prefHeight="141.0" prefWidth="240.0">
+                                       <children>
+                                          <Label layoutX="86.0" layoutY="93.0" prefHeight="27.0" prefWidth="177.0" text="REBOURSEMENTS" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="vehiculeTfd" layoutX="176.0" layoutY="17.0" prefHeight="27.0" prefWidth="82.0" text="1590000" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="radius" />
+                                          <String fx:value="bg-color-1" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="56.0" layoutY="19.0" prefHeight="141.0" prefWidth="240.0">
+                                       <children>
+                                          <Label layoutX="123.0" layoutY="90.0" prefHeight="27.0" prefWidth="129.0" text="CREDITS" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="soldeTfd" layoutX="162.0" layoutY="14.0" prefHeight="27.0" prefWidth="85.0" text=" 1590000" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <stylesheets>
+                                          <URL value="@../css/MainFormDesign.css" />
+                                          <URL value="@../css/MainFormDesign.css" />
+                                       </stylesheets>
+                                       <styleClass>
+                                          <String fx:value="radius" />
+                                          <String fx:value="bg-color-1" />
+                                          <String fx:value="bg-color-1" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="336.0" prefHeight="179.0" prefWidth="947.0" stylesheets="@../css/DoctorMainFormDesign.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="639.0" layoutY="19.0" prefHeight="141.0" prefWidth="240.0" stylesheets="@../css/DoctorMainFormDesign.css">
+                                       <children>
+                                          <Label layoutX="51.0" layoutY="92.0" prefHeight="27.0" prefWidth="201.0" text="          GESTIONNAIRES" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="gestionnaireTfd" layoutX="222.0" layoutY="18.0" prefHeight="27.0" prefWidth="37.0" text="000" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="radius" />
+                                          <String fx:value="bg-color-1" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="344.0" layoutY="19.0" prefHeight="141.0" prefWidth="240.0">
+                                       <children>
+                                          <Label layoutX="64.0" layoutY="93.0" prefHeight="27.0" prefWidth="199.0" text="            COMPTES" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="conducteurTfd" layoutX="223.0" layoutY="17.0" prefHeight="27.0" prefWidth="35.0" text="000" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="radius" />
+                                          <String fx:value="bg-color-1" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="56.0" layoutY="19.0" prefHeight="141.0" prefWidth="240.0">
+                                       <children>
+                                          <Label layoutX="123.0" layoutY="90.0" prefHeight="27.0" prefWidth="129.0" text="CLIENTS" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="passagerTfd" layoutX="215.0" layoutY="14.0" prefHeight="27.0" prefWidth="35.0" text="000" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <stylesheets>
+                                          <URL value="@../css/MainFormDesign.css" />
+                                          <URL value="@../css/MainFormDesign.css" />
+                                       </stylesheets>
+                                       <styleClass>
+                                          <String fx:value="radius" />
+                                          <String fx:value="bg-color-1" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                                    </children>
+                                    <styleClass>
+                                        <String fx:value="white-bg" />
+                                        <String fx:value="shadow" />
+                                    </styleClass>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

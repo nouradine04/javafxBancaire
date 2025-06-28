@@ -1,0 +1,273 @@
+/*
+   Fichier CSS principal pour le design de l'application bancaire
+*/
+
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.border-top{
+    -fx-border-color: #000;
+    -fx-border-width: .5px 0 .4px 0;
+}
+
+.radius{
+    -fx-background-radius: 5px;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
+}
+
+/* Styles pour l'administrateur */
+.header-admin{
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-width: 0 0 0 2px;
+    -fx-padding: 0 0 0 5px;
+}
+
+.bg-color-admin{
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+}
+
+.nav-btn-admin{
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-border-width: .5px;
+    -fx-text-fill: #fff;
+    -fx-font-family: Arial;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+}
+.nav-btn-admin:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill: #306090;
+}
+
+.btn-admin{
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: Arial;
+}
+.btn-admin:hover{
+    -fx-background-color: linear-gradient(to bottom right, #1aa0c4, #3975b8);
+}
+
+.table-view-admin{
+    -fx-padding: 0;
+    -fx-border-radius: 8px;
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+}
+.table-view-admin .column-header-background{
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 8px 8px 0 0 ;
+}
+.table-view-admin .column-header, .filter{
+    -fx-size: 40px;
+    -fx-background-color: transparent;
+}
+.table-view-admin .column-header .label{
+    -fx-font-family: Arial;
+    -fx-text-fill: #fff;
+}
+
+/* Styles pour le client */
+.header-client{
+    -fx-border-color: linear-gradient(to bottom right, #a413a1, #64308e);
+    -fx-border-width: 0 0 0 2px;
+    -fx-padding: 0 0 0 5px;
+}
+
+.bg-color-client{
+    -fx-background-color: linear-gradient(to bottom right, #a413a1, #64308e);
+}
+
+.nav-btn-client{
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-border-width: .5px;
+    -fx-text-fill: #fff;
+    -fx-font-family: Arial;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+}
+.nav-btn-client:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill: #64308e;
+}
+
+.btn-client{
+    -fx-background-color: linear-gradient(to bottom right, #a413a1, #64308e);
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: Arial;
+}
+.btn-client:hover{
+    -fx-background-color: linear-gradient(to bottom right, #c512c5, #67289d);
+}
+
+.table-view-client{
+    -fx-padding: 0;
+    -fx-border-radius: 8px;
+    -fx-border-color: linear-gradient(to bottom right, #a413a1, #64308e);
+}
+.table-view-client .column-header-background{
+    -fx-background-color: linear-gradient(to bottom right, #a413a1, #64308e);
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 8px 8px 0 0 ;
+}
+.table-view-client .column-header, .filter{
+    -fx-size: 40px;
+    -fx-background-color: transparent;
+}
+.table-view-client .column-header .label{
+    -fx-font-family: Arial;
+    -fx-text-fill: #fff;
+}
+
+/* Commun aux deux interfaces */
+.textfield-design{
+    -fx-border-color: #000;
+    -fx-border-width: .3px;
+    -fx-font-family: Tahoma;
+}
+.textfield-design:focused{
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-width: 1px;
+}
+
+.search{
+    -fx-border-color: #000;
+    -fx-border-width: .3px;
+    -fx-font-family: Tahoma;
+    -fx-padding: 0 0 0 25px;
+}
+.search:focused{
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-width: 1px;
+}
+
+/* Card styles */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+.card-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 15 5 15;
+}
+
+.card-content {
+    -fx-padding: 5 15 10 15;
+}
+
+/* Label styles */
+.label-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.label-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.label-sub-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Dashboard styles */
+.dashboard-tile {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 0);
+    -fx-padding: 15;
+}
+
+.dashboard-tile-amount {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #306090;
+}
+
+.dashboard-tile-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #808080;
+}
+
+/* Menu styles */
+.menu-bar {
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+}
+
+.menu-item {
+    -fx-padding: 5 15;
+}
+
+.menu .label {
+    -fx-text-fill: white;
+}
+
+.menu-item:focused {
+    -fx-background-color: #306090;
+}
+
+.menu-item .label {
+    -fx-text-fill: black;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+}
+
+/* Animation styles */
+.transition-button {
+    -fx-transition: background-color 0.3s ease;
+}
+
+/* Status indicators */
+.status-active {
+    -fx-text-fill: #00bb00;
+}
+
+.status-inactive {
+    -fx-text-fill: #ff0000;
+}
+
+.status-warning {
+    -fx-text-fill: #ff6600;
+}
+
+/* Form styles */
+.form-container {
+    -fx-spacing: 10;
+    -fx-padding: 20;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.form-field {
+    -fx-spacing: 5;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.form-field-label {
+    -fx-font-weight: bold;
+}
+
+.form-buttons {
+    -fx-alignment: CENTER_RIGHT;
+    -fx-spacing: 10;
+    -fx-padding: 10 0 0 0;
+}

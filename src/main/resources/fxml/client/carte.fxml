@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isi.mini_systeme_bancaire_javafx_jpa.controller.client.ClientCarteController">
+    <left>
+        <AnchorPane prefHeight="700.0" prefWidth="250.0" styleClass="bg-color-client" stylesheets="@../../css/MainStyle.css" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="126.0" prefHeight="700.0" prefWidth="250.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="MINI SYSTÈME BANCAIRE" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="30.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="lblNomClient" text="Nom du Client" textFill="WHITE">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#handleDashboard" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Tableau de Bord">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="30.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#handleTransaction" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Effectuer une Transaction">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Gestion de Carte Bancaire">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#handleCredit" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Crédits et Simulations">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#handleTicket" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Support Client">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#handleLogout" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Déconnexion">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="30.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="700.0" prefWidth="950.0" styleClass="white-bg" stylesheets="@../../css/MainStyle.css" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="387.0" layoutY="128.0" prefHeight="700.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="border-top" stylesheets="@../../css/MainStyle.css">
+                            <children>
+                                <Label styleClass="header-client" stylesheets="@../../css/MainStyle.css" text="Gestion de Carte Bancaire">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </VBox.margin>
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="15.0">
+                            <children>
+                                <Label text="Sélectionnez un compte:">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="cbComptes" prefHeight="30.0" prefWidth="400.0" />
+                            </children>
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" top="20.0" />
+                            </VBox.margin>
+                        </HBox>
+
+                        <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                            <VBox.margin>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </VBox.margin>
+                            <children>
+                                <!-- Section Liste des Cartes -->
+                                <VBox spacing="10.0" styleClass="dashboard-tile" stylesheets="@../../css/MainStyle.css" HBox.hgrow="ALWAYS" prefWidth="400.0">
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Mes Cartes Bancaires" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+
+                                        <TableView fx:id="tableCartes" prefHeight="300.0" prefWidth="200.0" onMouseClicked="#handleSelectionCarte" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="colNumero" prefWidth="200.0" text="Numéro" />
+                                                <TableColumn fx:id="colDateExpiration" prefWidth="100.0" text="Expiration" />
+                                                <TableColumn fx:id="colStatut" prefWidth="100.0" text="Statut" />
+                                            </columns>
+                                        </TableView>
+
+                                        <Button fx:id="btnDemander" mnemonicParsing="false" onAction="#handleDemander" prefHeight="40.0" styleClass="btn-client" stylesheets="@../../css/MainStyle.css" text="Demander une Carte">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </VBox>
+
+                                <!-- Section Info Carte -->
+                                <VBox fx:id="panelInfoCarte" spacing="10.0" styleClass="dashboard-tile" stylesheets="@../../css/MainStyle.css" HBox.hgrow="ALWAYS" prefWidth="400.0">
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Informations de la Carte" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+
+                                        <!-- Visuel de la carte -->
+                                        <AnchorPane prefHeight="200.0" style="-fx-background-color: #3B6CAF; -fx-background-radius: 10px;">
+                                            <children>
+                                                <Label layoutX="30.0" layoutY="30.0" text="Banque ISI" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd700" height="40.0" layoutX="30.0" layoutY="80.0" width="60.0" />
+                                                <Label fx:id="lblNumero" layoutX="30.0" layoutY="140.0" text="XXXX-XXXX-XXXX-1234" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="250.0" layoutY="160.0" text="Expire" textFill="WHITE">
+                                                    <font>
+                                                        <Font size="10.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="lblDateExpiration" layoutX="290.0" layoutY="158.0" text="01/28" textFill="WHITE">
+                                                    <font>
+                                                        <Font name="System Bold" size="12.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+
+                                        <Label text="Statut:" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="lblStatut" text="Active" style="-fx-font-size: 14px;" />
+
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Button fx:id="btnBloquer" mnemonicParsing="false" onAction="#handleBloquer" prefHeight="40.0" styleClass="btn-client" stylesheets="@../../css/MainStyle.css" text="Bloquer la Carte">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Button>
+                                                <Button fx:id="btnDebloquer" mnemonicParsing="false" onAction="#handleDebloquer" prefHeight="40.0" styleClass="btn-client" stylesheets="@../../css/MainStyle.css" text="Débloquer la Carte">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

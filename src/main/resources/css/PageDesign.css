@@ -1,0 +1,227 @@
+/*
+MainStyle.css - Fichier de style principal pour l'application Mini Système Bancaire
+*/
+
+/* Styles communs */
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.border-top{
+    -fx-border-color: #000;
+    -fx-border-width: .5px 0 .4px 0;
+}
+
+.radius{
+    -fx-background-radius: 5px;
+}
+
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
+}
+
+/* Styles pour le module Client */
+.bg-color-client{
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+}
+
+.header-client{
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-width: 0 0 0 2px;
+    -fx-padding: 0 0 0 5px;
+}
+
+.nav-btn-client{
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-border-width: .5px;
+    -fx-text-fill: #fff;
+    -fx-font-family: Arial;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+}
+.nav-btn-client:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill: #306090;
+}
+
+.btn-client{
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: Arial;
+}
+.btn-client:hover{
+    -fx-background-color: linear-gradient(to bottom right, #1a9bbe, #3a75b0);
+}
+
+/* Styles pour les tableaux dans le module client */
+.table-view-client{
+    -fx-padding: 0;
+    -fx-border-radius: 8px;
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+}
+.table-view-client .column-header-background{
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 8px 8px 0 0 ;
+}
+.table-view-client .column-header, .filter{
+    -fx-size: 40px;
+    -fx-background-color: transparent;
+}
+.table-view-client .column-header .label{
+    -fx-font-family: Arial;
+    -fx-text-fill: #fff;
+}
+
+/* Styles pour les tuiles du dashboard */
+.dashboard-tile {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #eeeeee;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+.dashboard-tile-title {
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.dashboard-tile-amount {
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-text-fill: #306090;
+}
+
+/* Styles pour le module Admin */
+.bg-color-admin{
+    -fx-background-color: linear-gradient(to bottom right, #a31336, #861d2a);
+}
+
+.header-admin{
+    -fx-border-color: linear-gradient(to bottom right, #a31336, #861d2a);
+    -fx-border-width: 0 0 0 2px;
+    -fx-padding: 0 0 0 5px;
+}
+
+.nav-btn-admin{
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-border-width: .5px;
+    -fx-text-fill: #fff;
+    -fx-font-family: Arial;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+}
+.nav-btn-admin:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill: #a31336;
+}
+
+.btn-admin{
+    -fx-background-color: linear-gradient(to bottom right, #a31336, #861d2a);
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: Arial;
+}
+.btn-admin:hover{
+    -fx-background-color: linear-gradient(to bottom right, #bf0d3c, #9d1022);
+}
+
+/* Styles pour les tableaux dans le module admin */
+.table-view-admin{
+    -fx-padding: 0;
+    -fx-border-radius: 8px;
+    -fx-border-color: linear-gradient(to bottom right, #a31336, #861d2a);
+}
+.table-view-admin .column-header-background{
+    -fx-background-color: linear-gradient(to bottom right, #a31336, #861d2a);
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 8px 8px 0 0 ;
+}
+.table-view-admin .column-header, .filter{
+    -fx-size: 40px;
+    -fx-background-color: transparent;
+}
+.table-view-admin .column-header .label{
+    -fx-font-family: Arial;
+    -fx-text-fill: #fff;
+}
+
+/* Styles pour les champs de texte */
+.textfield-client{
+    -fx-border-color: #000;
+    -fx-border-width: .3px;
+    -fx-font-family: Tahoma;
+}
+.textfield-client:focused{
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-width: 1px;
+}
+
+.textfield-admin{
+    -fx-border-color: #000;
+    -fx-border-width: .3px;
+    -fx-font-family: Tahoma;
+}
+.textfield-admin:focused{
+    -fx-border-color: linear-gradient(to bottom right, #a31336, #861d2a);
+    -fx-border-width: 1px;
+}
+
+/* Styles pour la recherche */
+.search{
+    -fx-border-color: #000;
+    -fx-border-width: .3px;
+    -fx-font-family: Tahoma;
+    -fx-padding: 0 0 0 25px;
+}
+.search:focused{
+    -fx-border-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-border-width: 1px;
+}
+
+/* Styles spécifiques pour l'écran de connexion */
+.login-panel {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}
+
+.login-bg {
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+}
+
+.login-title {
+    -fx-font-family: Arial;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: #306090;
+}
+
+.login-field {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.login-btn {
+    -fx-background-color: linear-gradient(to bottom right, #188ba7, #306090);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.login-btn:hover {
+    -fx-background-color: linear-gradient(to bottom right, #1a9bbe, #3a75b0);
+}

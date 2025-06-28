@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isi.mini_systeme_bancaire_javafx_jpa.controller.client.ClientCreditController">
+    <left>
+        <AnchorPane prefHeight="700.0" prefWidth="250.0" styleClass="bg-color-client" stylesheets="@../../css/MainStyle.css" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="50.0" layoutY="126.0" prefHeight="700.0" prefWidth="250.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="MINI SYSTÈME BANCAIRE" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="30.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="lblNomClient" text="Nom du Client" textFill="WHITE">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#handleDashboard" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Tableau de Bord">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="30.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#handleTransaction" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Effectuer une Transaction">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#handleCarte" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Gestion de Carte Bancaire">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Crédits et Simulations">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#handleTicket" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Support Client">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#handleLogout" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-client" stylesheets="@../../css/MainStyle.css" text="Déconnexion">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="30.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="700.0" prefWidth="950.0" styleClass="white-bg" stylesheets="@../../css/MainStyle.css" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="387.0" layoutY="128.0" prefHeight="700.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="border-top" stylesheets="@../../css/MainStyle.css">
+                            <children>
+                                <Label styleClass="header-client" stylesheets="@../../css/MainStyle.css" text="Crédits et Simulations">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </VBox.margin>
+                        </HBox>
+
+                        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                            <tabs>
+                                <!-- Onglet Simulation -->
+                                <Tab text="Simulation de Crédit">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <padding>
+                                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                </padding>
+                                                <children>
+                                                    <!-- Formulaire de simulation -->
+                                                    <VBox spacing="10.0" styleClass="dashboard-tile" stylesheets="@../../css/MainStyle.css">
+                                                        <padding>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                        </padding>
+                                                        <children>
+                                                            <Label text="Paramètres de Simulation" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0" />
+                                                                </font>
+                                                            </Label>
+
+                                                            <HBox spacing="20.0">
+                                                                <children>
+                                                                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Montant (FCFA)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <TextField fx:id="txtMontantSimulation" promptText="Ex: 1000000" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Durée (mois)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <ComboBox fx:id="cbDureeSimulation" prefWidth="150.0" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Taux d'intérêt (%)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <TextField fx:id="txtTauxSimulation" promptText="Ex: 7.5" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+
+                                                            <Button fx:id="btnSimuler" mnemonicParsing="false" onAction="#handleSimuler" prefHeight="40.0" styleClass="btn-client" stylesheets="@../../css/MainStyle.css" text="Simuler">
+                                                                <font>
+                                                                    <Font size="14.0" />
+                                                                </font>
+                                                            </Button>
+                                                        </children>
+                                                    </VBox>
+
+                                                    <!-- Résultats de la simulation -->
+                                                    <VBox fx:id="panelResultatSimulation" spacing="10.0" styleClass="dashboard-tile" stylesheets="@../../css/MainStyle.css">
+                                                        <padding>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                        </padding>
+                                                        <children>
+                                                            <Label text="Résultats de la Simulation" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0" />
+                                                                </font>
+                                                            </Label>
+
+                                                            <HBox spacing="20.0">
+                                                                <children>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Mensualité" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblMensualiteSimulation" text="0 FCFA" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Coût Total du Crédit" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblCoutTotalSimulation" text="0 FCFA" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Taux Effectif Global (TEG)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblTEGSimulation" text="0 %" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+
+                                                            <Label text="Tableau d'Amortissement" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                                                <font>
+                                                                    <Font name="System Bold" size="14.0" />
+                                                                </font>
+                                                            </Label>
+                                                            <TableView fx:id="tableAmortissement" prefHeight="300.0">
+                                                                <columns>
+                                                                    <TableColumn fx:id="colPeriode" prefWidth="75.0" text="Période" />
+                                                                    <TableColumn fx:id="colCapital" prefWidth="150.0" text="Capital Remboursé" />
+                                                                    <TableColumn fx:id="colInteret" prefWidth="150.0" text="Intérêts" />
+                                                                    <TableColumn fx:id="colMensualite" prefWidth="150.0" text="Mensualité" />
+                                                                    <TableColumn fx:id="colRestant" prefWidth="150.0" text="Capital Restant" />
+                                                                </columns>
+                                                            </TableView>
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </VBox>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+
+                                <!-- Onglet Demande de Crédit -->
+                                <Tab text="Demander un Crédit">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <padding>
+                                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                </padding>
+                                                <children>
+                                                    <VBox spacing="10.0" styleClass="dashboard-tile" stylesheets="@../../css/MainStyle.css">
+                                                        <padding>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                        </padding>
+                                                        <children>
+                                                            <Label text="Demande de Crédit" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0" />
+                                                                </font>
+                                                            </Label>
+
+                                                            <HBox spacing="20.0">
+                                                                <children>
+                                                                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Montant (FCFA)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <TextField fx:id="txtMontantDemande" promptText="Ex: 1000000" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Durée (mois)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <ComboBox fx:id="cbDureeDemande" prefWidth="150.0" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Taux d'intérêt (%)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <TextField fx:id="txtTauxDemande" promptText="Ex: 7.5" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+
+                                                            <Label text="Mensualité Estimée (FCFA)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                            <TextField fx:id="txtMensualiteDemande" editable="false" />
+
+                                                            <Label text="Motif du crédit (optionnel)" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                            <TextArea fx:id="txtMotifDemande" prefHeight="100.0" promptText="Décrivez le motif de votre demande de crédit" />
+
+                                                            <Button fx:id="btnEnvoyerDemande" mnemonicParsing="false" onAction="#handleEnvoyerDemande" prefHeight="40.0" styleClass="btn-client" stylesheets="@../../css/MainStyle.css" text="Envoyer la Demande">
+                                                                <font>
+                                                                    <Font size="14.0" />
+                                                                </font>
+                                                            </Button>
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </VBox>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+
+                                <!-- Onglet Mes Crédits -->
+                                <Tab text="Mes Crédits">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <padding>
+                                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                </padding>
+                                                <children>
+                                                    <TableView fx:id="tableCredits" prefHeight="200.0" onMouseClicked="#handleSelectionCredit">
+                                                        <columns>
+                                                            <TableColumn fx:id="colIdCredit" prefWidth="50.0" text="ID" />
+                                                            <TableColumn fx:id="colMontantCredit" prefWidth="150.0" text="Montant" />
+                                                            <TableColumn fx:id="colTauxCredit" prefWidth="80.0" text="Taux" />
+                                                            <TableColumn fx:id="colDureeCredit" prefWidth="100.0" text="Durée" />
+                                                            <TableColumn fx:id="colMensualiteCredit" prefWidth="150.0" text="Mensualité" />
+                                                            <TableColumn fx:id="colStatutCredit" prefWidth="100.0" text="Statut" />
+                                                            <TableColumn fx:id="colDateCredit" prefWidth="120.0" text="Date" />
+                                                        </columns>
+                                                    </TableView>
+
+                                                    <VBox fx:id="panelDetailCredit" spacing="10.0" styleClass="dashboard-tile" stylesheets="@../../css/MainStyle.css">
+                                                        <padding>
+                                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                        </padding>
+                                                        <children>
+                                                            <Label text="Détails du Crédit" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                                                <font>
+                                                                    <Font name="System Bold" size="16.0" />
+                                                                </font>
+                                                            </Label>
+
+                                                            <HBox spacing="20.0">
+                                                                <children>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Montant Emprunté" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblDetailMontant" text="0 FCFA" style="-fx-font-size: 14px;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Taux d'Intérêt" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblDetailTaux" text="0%" style="-fx-font-size: 14px;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Durée" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblDetailDuree" text="0 mois" style="-fx-font-size: 14px;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+
+                                                            <HBox spacing="20.0">
+                                                                <children>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Mensualité" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblDetailMensualite" text="0 FCFA" style="-fx-font-size: 14px;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Date de Demande" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblDetailDate" text="01/01/2024" style="-fx-font-size: 14px;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Statut" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblDetailStatut" text="En attente" style="-fx-font-size: 14px;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+
+                                                            <HBox spacing="20.0">
+                                                                <children>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Montant Remboursé" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblDetailRembourse" text="0 FCFA" style="-fx-font-size: 14px;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                                        <children>
+                                                                            <Label text="Montant Restant" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css" />
+                                                                            <Label fx:id="lblDetailRestant" text="0 FCFA" style="-fx-font-size: 14px;" />
+                                                                        </children>
+                                                                    </VBox>
+                                                                </children>
+                                                            </HBox>
+
+                                                            <Label text="Historique des Remboursements" styleClass="dashboard-tile-title" stylesheets="@../../css/MainStyle.css">
+                                                                <font>
+                                                                    <Font name="System Bold" size="14.0" />
+                                                                </font>
+                                                            </Label>
+                                                            <TableView fx:id="tableRemboursements" prefHeight="150.0">
+                                                                <columns>
+                                                                    <TableColumn fx:id="colDateRemboursement" prefWidth="150.0" text="Date" />
+                                                                    <TableColumn fx:id="colMontantRemboursement" prefWidth="150.0" text="Montant" />
+                                                                </columns>
+                                                            </TableView>
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </VBox>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

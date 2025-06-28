@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isi.mini_systeme_bancaire_javafx_jpa.controller.admin.AdminDashboardController">
+    <left>
+        <AnchorPane prefHeight="700.0" prefWidth="250.0" style="-fx-background-color: #2D3748;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="0.0" layoutY="0.0" prefHeight="700.0" prefWidth="250.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <!-- Title -->
+                        <Label text="" textFill="#E2E8F0">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label text="Administration" textFill="#A0AEC0">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="20.0" />
+                            </VBox.margin>
+                        </Label>
+
+                        <!-- Buttons with Icons (Reordered) -->
+                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="250.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <!-- Dashboard (Highlighted as Active) -->
+                                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: #4C51BF; -fx-background-radius: 10; -fx-text-fill: #FFFFFF;" text="Tableau de bord">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                                            <image>
+                                                <Image url="https://cdn-icons-png.flaticon.com/512/5192/5192836.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="15.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <!-- Transactions -->
+                                <Button mnemonicParsing="false" onAction="#handleGestionTransactions" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #E2E8F0; -fx-border-color: #4B5563; -fx-border-radius: 10; -fx-padding: 0 10 0 10;" text="Transactions">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                                            <image>
+                                                <Image url="https://cdn-icons-png.flaticon.com/512/876/876784.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="15.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <!-- Client Management -->
+                                <Button mnemonicParsing="false" onAction="#handleGestionClients" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #E2E8F0; -fx-border-color: #4B5563; -fx-border-radius: 10; -fx-padding: 0 10 0 10;" text="Gestion des Clients">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                                            <image>
+                                                <Image url="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="15.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <!-- Account Management -->
+                                <Button mnemonicParsing="false" onAction="#handleGestionComptes" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #E2E8F0; -fx-border-color: #4B5563; -fx-border-radius: 10; -fx-padding: 0 10 0 10;" text="Gestion des Comptes">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                                            <image>
+                                                <Image url="https://cdn-icons-png.flaticon.com/512/3135/3135762.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="15.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <!-- Credit Management -->
+<!--                                <Button mnemonicParsing="false" onAction="#handleGestionCredits" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #E2E8F0; -fx-border-color: #4B5563; -fx-border-radius: 10; -fx-padding: 0 10 0 10;" text="Crédits">-->
+<!--                                    <graphic>-->
+<!--                                        <ImageView fitHeight="20.0" fitWidth="20.0">-->
+<!--                                            <image>-->
+<!--                                                <Image url="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" />-->
+<!--                                            </image>-->
+<!--                                        </ImageView>-->
+<!--                                    </graphic>-->
+<!--                                    <font>-->
+<!--                                        <Font size="14.0" />-->
+<!--                                    </font>-->
+<!--                                    <VBox.margin>-->
+<!--                                        <Insets left="15.0" />-->
+<!--                                    </VBox.margin>-->
+<!--                                </Button>-->
+
+                                <!-- Card Management -->
+<!--                                <Button mnemonicParsing="false" onAction="#handleGestionCartes" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #E2E8F0; -fx-border-color: #4B5563; -fx-border-radius: 10; -fx-padding: 0 10 0 10;" text="Cartes Bancaires">-->
+<!--                                    <graphic>-->
+<!--                                        <ImageView fitHeight="20.0" fitWidth="20.0">-->
+<!--                                            <image>-->
+<!--                                                <Image url="https://cdn-icons-png.flaticon.com/512/633/633209.png" />-->
+<!--                                            </image>-->
+<!--                                        </ImageView>-->
+<!--                                    </graphic>-->
+<!--                                    <font>-->
+<!--                                        <Font size="14.0" />-->
+<!--                                    </font>-->
+<!--                                    <VBox.margin>-->
+<!--                                        <Insets left="15.0" />-->
+<!--                                    </VBox.margin>-->
+<!--                                </Button>-->
+
+                                <!-- Support -->
+                                <Button mnemonicParsing="false" onAction="#handleGestionTickets" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #E2E8F0; -fx-border-color: #4B5563; -fx-border-radius: 10; -fx-padding: 0 10 0 10;" text="Support Client">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                                            <image>
+                                                <Image url="https://cdn-icons-png.flaticon.com/512/1149/1149629.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="15.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <!-- Operations Analysis -->
+<!--                                <Button mnemonicParsing="false" onAction="#handleAnalyseOperations" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: #E2E8F0; -fx-border-color: #4B5563; -fx-border-radius: 10; -fx-padding: 0 10 0 10;" text="Analyse Opérations">-->
+<!--                                    <graphic>-->
+<!--                                        <ImageView fitHeight="20.0" fitWidth="20.0">-->
+<!--                                            <image>-->
+<!--                                                <Image url="https://cdn-icons-png.flaticon.com/512/1087/1087085.png" />-->
+<!--                                            </image>-->
+<!--                                        </ImageView>-->
+<!--                                    </graphic>-->
+<!--                                    <font>-->
+<!--                                        <Font size="14.0" />-->
+<!--                                    </font>-->
+<!--                                    <VBox.margin>-->
+<!--                                        <Insets left="15.0" />-->
+<!--                                    </VBox.margin>-->
+<!--                                </Button>-->
+                            </children>
+                        </VBox>
+
+                        <!-- Logout Button -->
+                        <Button mnemonicParsing="false" onAction="#handleLogout" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: #E53E3E; -fx-background-radius: 10; -fx-text-fill: #FFFFFF;" text="Déconnexion">
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0">
+                                    <image>
+                                        <Image url="https://cdn-icons-png.flaticon.com/512/1286/1286853.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="20.0" left="15.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>    </left>
+    <center>
+        <AnchorPane prefHeight="700.0" prefWidth="950.0" style="-fx-background-color: #F3F4F6;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="387.0" layoutY="128.0" prefHeight="700.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: transparent transparent #E5E7EB transparent;">
+                            <children>
+                                <Label style="-fx-text-fill: #1E3A8A;" text="Tableau de Bord">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="15.0" top="15.0" />
+                            </padding>
+                        </HBox>
+                        <GridPane hgap="20.0" vgap="20.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <GridPane hgap="20" vgap="20" alignment="CENTER">
+                                <children>
+                                    <!-- Card 1: Clients -->
+                                    <AnchorPane prefHeight="220" prefWidth="260" style="-fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 10); -fx-background-color: linear-gradient(to bottom, #4A90E2, #145DA0);">
+                                        <children>
+                                            <VBox alignment="CENTER" spacing="10" layoutX="10" layoutY="40">
+                                                <Label text="Clients" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                                                <Label fx:id="lblTotalClients" text="0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 30; -fx-font-weight: bold;"/>
+                                            </VBox>
+                                        </children>
+                                    </AnchorPane>
+
+                                    <!-- Card 2: Comptes -->
+                                    <AnchorPane prefHeight="220" prefWidth="260" GridPane.columnIndex="1" style="-fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 10); -fx-background-color: linear-gradient(to bottom, #36D1DC, #5B86E5);">
+                                        <children>
+                                            <VBox alignment="CENTER" spacing="10" layoutX="10" layoutY="40">
+                                                <Label text="Comptes" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                                                <Label fx:id="lblTotalComptes" text="0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 30; -fx-font-weight: bold;"/>
+                                            </VBox>
+                                        </children>
+                                    </AnchorPane>
+
+                                    <!-- Card 3: Transactions -->
+                                    <AnchorPane prefHeight="220" prefWidth="260" GridPane.columnIndex="2" style="-fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 10); -fx-background-color: linear-gradient(to bottom, #F7971E, #FFD200);">
+                                        <children>
+                                            <VBox alignment="CENTER" spacing="10" layoutX="10" layoutY="40">
+                                                <Label text="Transactions" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                                                <Label fx:id="lblTotalTransactions" text="0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 30; -fx-font-weight: bold;"/>
+                                            </VBox>
+                                        </children>
+                                    </AnchorPane>
+
+                                    <!-- Card 4: Solde Total -->
+                                    <AnchorPane prefHeight="220" prefWidth="260" GridPane.rowIndex="1" style="-fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 10); -fx-background-color: linear-gradient(to bottom, #11998E, #38EF7D);">
+                                        <children>
+                                            <VBox alignment="CENTER" spacing="10" layoutX="10" layoutY="40">
+                                                <Label text="Solde Total" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                                                <Label fx:id="lblTotalSolde" text="0 FCFA" style="-fx-text-fill: #FFFFFF; -fx-font-size: 30; -fx-font-weight: bold;"/>
+                                            </VBox>
+                                        </children>
+                                    </AnchorPane>
+
+                                    <!-- Card 5: Crédits -->
+                                    <AnchorPane prefHeight="220" prefWidth="260" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 10); -fx-background-color: linear-gradient(to bottom, #FC466B, #3F5EFB);">
+                                        <children>
+                                            <VBox alignment="CENTER" spacing="10" layoutX="10" layoutY="40">
+                                                <Label text="Crédits" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                                                <Label fx:id="lblTotalCredits" text="0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 30; -fx-font-weight: bold;"/>
+                                            </VBox>
+                                        </children>
+                                    </AnchorPane>
+
+                                    <!-- Card 6: Tickets Ouverts -->
+                                    <AnchorPane prefHeight="220" prefWidth="260" GridPane.columnIndex="2" GridPane.rowIndex="1" style="-fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 10); -fx-background-color: linear-gradient(to bottom, #FF512F, #DD2476);">
+                                        <children>
+                                            <VBox alignment="CENTER" spacing="10" layoutX="10" layoutY="40">
+                                                <Label text="Tickets Ouverts" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                                                <Label fx:id="lblTicketsOuverts" text="0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 30; -fx-font-weight: bold;"/>
+                                            </VBox>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </GridPane>
+
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" top="20.0" />
+                            </VBox.margin>
+                        </GridPane>
+                        <HBox prefHeight="300.0" spacing="20.0">
+                            <children>
+
+                            </children>
+                            <VBox.margin>
+                                <Insets left="20.0" right="20.0" top="20.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <AnchorPane prefHeight="200.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 5);" VBox.vgrow="ALWAYS">
+                            <children>
+                                <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <Label style="-fx-text-fill: #111827;" text="Dernières transactions">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <TableView fx:id="tableRecentTransactions" prefHeight="150.0" VBox.vgrow="ALWAYS" style="-fx-border-color: #E5E7EB; -fx-border-radius: 5;">
+                                            <columns>
+                                                <TableColumn fx:id="colType" prefWidth="150.0" text="Type" style="-fx-alignment: CENTER-LEFT;" />
+                                                <TableColumn fx:id="colMontant" prefWidth="150.0" text="Montant" style="-fx-alignment: CENTER-RIGHT;" />
+                                                <TableColumn fx:id="colDate" prefWidth="150.0" text="Date" style="-fx-alignment: CENTER;" />
+                                                <TableColumn fx:id="colStatut" prefWidth="150.0" text="Statut" style="-fx-alignment: CENTER;" />
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </VBox.margin>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
